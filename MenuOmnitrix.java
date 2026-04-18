@@ -89,8 +89,8 @@ class ImagenButton extends JButton {
 // --- CLASE PRINCIPAL ---
 public class MenuOmnitrix extends JFrame {
 
-    private static final String IMG_JUGAR = "menu_jugar.png"; 
     private static final String IMG_CREDITOS = "menu_creditos.png"; 
+    private static final String IMG_JUGAR = "menu_jugar.png"; 
     private static final String IMG_ACTUALIZACIONES = "menu_actualizaciones.png"; 
 
     public MenuOmnitrix() {
@@ -151,7 +151,7 @@ public class MenuOmnitrix extends JFrame {
         simbolo.setOpaque(false);
         panelTitulo.add(simbolo);
 
-        JLabel lblTituloText = new JLabel("JUEGO");
+        JLabel lblTituloText = new JLabel("proyecto geometría");
         lblTituloText.setFont(new Font("sansserif", Font.BOLD, 60));
         lblTituloText.setForeground(Color.WHITE);
         panelTitulo.add(lblTituloText);
@@ -182,24 +182,23 @@ public class MenuOmnitrix extends JFrame {
         // Botones
         Dimension buttonSize = new Dimension(280, 450);
 
-        ImagenButton btnJugar = new ImagenButton(IMG_JUGAR, "Jugar");
-        btnJugar.setPreferredSize(buttonSize);
-
-        ImagenButton btnCreditos = new ImagenButton(IMG_CREDITOS, "Créditos");
-        btnCreditos.setPreferredSize(buttonSize);
+        ImagenButton btncreditos = new ImagenButton(IMG_JUGAR, "Créditos");
+        btncreditos.setPreferredSize(buttonSize);
+        btncreditos.addActionListener(e -> mostrarVentanaCreditos());
+        
+        ImagenButton btnjugar = new ImagenButton(IMG_CREDITOS, "Jugar");
+        btnjugar.setPreferredSize(buttonSize);
         // --- ACCIÓN DE CRÉDITOS ---
-        btnCreditos.addActionListener(e -> mostrarVentanaCreditos());
-
         ImagenButton btnActualizaciones = new ImagenButton(IMG_ACTUALIZACIONES, "Registro de actualizaciones");
         btnActualizaciones.setPreferredSize(buttonSize);
 
         gbc.gridwidth = 1;
         gbc.insets = new Insets(0, 30, 0, 30);
         gbc.gridx = 0; gbc.gridy = 1;
-        panelPrincipal.add(btnJugar, gbc);
+        panelPrincipal.add(btncreditos, gbc);
 
         gbc.gridx = 1; gbc.gridy = 1;
-        panelPrincipal.add(btnCreditos, gbc);
+        panelPrincipal.add(btnjugar, gbc);
 
         gbc.gridx = 2; gbc.gridy = 1;
         panelPrincipal.add(btnActualizaciones, gbc);
